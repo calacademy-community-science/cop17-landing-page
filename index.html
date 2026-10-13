@@ -9,45 +9,53 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --teal:#1f7f9c; --teal-dark:#17647b; --orange:#e8662a; --ink:#1f2d33; --muted:#5d6b70; --paper:#fbf8f3; --line:#e4ddd2; }
+  :root { --teal:#1f7f9c; --teal-dark:#17647b; --ink:#1f2d33; --muted:#5d6b70; }
   * { box-sizing:border-box; }
-  body { margin:0; background:var(--paper); color:var(--ink);
+  body { margin:0; background:#24424f; color:#fff;
          font:500 17px/1.5 Montserrat,"Segoe UI",system-ui,sans-serif; }
 
-  /* Photo of Yerevan and Mount Ararat, with the title set in the sky */
-  header { min-height:62vh; padding:40px 20px 0; text-align:center; color:#fff;
-           background:linear-gradient(rgba(16,50,74,.45), rgba(16,50,74,0) 55%),
-                      url(yerevan-ararat.jpg) center 62% / cover no-repeat #3d6f9c; }
-  h1 { margin:0 auto; max-width:11em; font-size:clamp(2rem, 8vw, 3.4rem); font-weight:700;
-       line-height:1.1; text-shadow:0 2px 12px rgba(10,35,55,.45); }
-  header p { margin:12px 0 0; font-size:clamp(1.1rem, 4.5vw, 1.5rem); font-weight:600;
-             text-shadow:0 1px 8px rgba(10,35,55,.5); }
+  /* One full-screen photo of Yerevan and Mount Ararat. The title sits in the sky,
+     the mountain shows through the gap, and the links float over the city. */
+  .page { min-height:100vh; min-height:100svh; display:flex; flex-direction:column;
+          padding:32px 20px 20px; text-align:center;
+          background:linear-gradient(rgba(16,50,74,.5), rgba(16,50,74,0) 30%, rgba(12,32,40,0) 45%, rgba(12,32,40,.8) 85%),
+                     url(yerevan-ararat.jpg) 70% center / cover no-repeat #3d6f9c; }
+  .page > * { width:100%; max-width:520px; margin-left:auto; margin-right:auto; }
 
-  main { max-width:560px; margin:0 auto; padding:28px 20px 40px; }
-  p.lede { margin:0 0 24px; font-size:1.15rem; font-weight:600; text-align:center; }
-  a.btn { display:block; padding:16px 20px; margin:0 0 12px; border:2px solid var(--teal);
-          border-radius:12px; background:#fff; color:var(--teal-dark); text-decoration:none;
-          font-weight:700; text-align:center; }
-  a.btn:hover, a.btn:focus-visible { background:#eef6f8; outline:none; }
-  a.btn span { display:block; font-weight:500; font-size:.9rem; color:var(--muted); }
+  h1 { margin-top:0; margin-bottom:0; font-size:clamp(1.9rem, 8vw, 3.2rem); font-weight:700;
+       line-height:1.1; text-shadow:0 2px 12px rgba(10,35,55,.5); }
+  header p { margin:10px 0 0; font-size:clamp(1.05rem, 4.5vw, 1.4rem); font-weight:600;
+             text-shadow:0 1px 8px rgba(10,35,55,.55); }
+
+  /* Keeps the mountain visible between the title and the links */
+  .gap { flex:1; min-height:20vh; }
+
+  p.lede { margin:0 0 16px; font-size:1.05rem; font-weight:600; text-shadow:0 1px 8px rgba(0,0,0,.7); }
+  a.btn { display:block; padding:14px 18px; margin:0 0 10px; border-radius:12px;
+          background:rgba(255,255,255,.93); color:var(--teal-dark); text-decoration:none;
+          font-weight:700; box-shadow:0 4px 16px rgba(0,0,0,.25); }
+  a.btn:hover, a.btn:focus-visible { background:#fff; outline:2px solid #fff; outline-offset:2px; }
+  a.btn span { display:block; font-weight:500; font-size:.88rem; color:var(--muted); }
   a.primary { background:var(--teal); color:#fff; }
   a.primary:hover, a.primary:focus-visible { background:var(--teal-dark); }
   a.primary span { color:rgba(255,255,255,.9); }
-  h2 { margin:32px 0 12px; font-size:1.15rem; font-weight:700; text-align:center; color:var(--orange); }
-  .row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  h2 { margin:14px 0 8px; font-size:1rem; font-weight:700; text-shadow:0 1px 8px rgba(0,0,0,.7); }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
   .row a.btn { margin:0; }
 
-  footer { max-width:560px; margin:0 auto; padding:20px 20px 40px; border-top:1px solid var(--line);
-           font-size:.8rem; text-align:center; color:var(--muted); }
-  footer p { margin:0 0 8px; }
-  footer a { color:var(--teal-dark); }
+  footer { padding-top:14px; font-size:.75rem; color:rgba(255,255,255,.85); text-shadow:0 1px 6px rgba(0,0,0,.7); }
+  footer p { margin:0 0 4px; }
+  footer a { color:#fff; }
 </style>
 </head>
 <body>
+<div class="page">
 <header>
   <h1>Yerevan Biodiversity Challenge</h1>
   <p>Take Action For Nature!</p>
 </header>
+
+<div class="gap"></div>
 
 <main>
   <p class="lede">Share your nature observations made in Yerevan during the COP on iNaturalist.</p>
@@ -63,7 +71,6 @@
     <a class="btn" href="https://play.google.com/store/apps/details?id=org.inaturalist.android">Android</a>
   </div>
 
-  <h2>Bring it home</h2>
   <a class="btn" href="https://www.citynaturechallenge.com/participate">
     Bring the City Nature Challenge to your city
     <span>Sign up to take part</span>
@@ -79,5 +86,6 @@
   <p>Photo: <a href="https://commons.wikimedia.org/wiki/File:Mount_Ararat_and_the_Yerevan_skyline_in_spring_from_the_Cascade.jpg">Mount Ararat and the Yerevan skyline</a>
      by Serouj Ourishian, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
 </footer>
+</div>
 </body>
 </html>
