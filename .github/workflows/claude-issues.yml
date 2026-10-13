@@ -1,0 +1,54 @@
+name: Claude handles issues
+
+# When someone with write access opens an issue, Claude makes the requested
+# edit, pushes it to main (which redeploys the site), and replies on the issue.
+on:
+  issues:
+    types: [opened]
+
+concurrency:
+  group: claude-issues
+  cancel-in-progress: false
+
+jobs:
+  edit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      issues: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            REPO: ${{ github.repository }}
+            ISSUE NUMBER: ${{ github.event.issue.number }}
+
+            This repository is a small static landing page served by GitHub
+            Pages from the main branch. A new issue was just filed asking for
+            a change to the site.
+
+            1. Read the issue with `gh issue view ${{ github.event.issue.number }}`.
+            2. If it asks for a clear change to the site, make the edit, keeping
+               the existing style of index.html. Do not touch CNAME or anything
+               under .github/.
+            3. Commit to main with a message ending in
+               "Fixes #${{ github.event.issue.number }}" and `git push origin main`.
+               If git has no identity set, use the name "claude[bot]" and the
+               email "claude[bot]@users.noreply.github.com".
+            4. Comment on the issue with `gh issue comment` saying what you changed.
+
+            If the request is unclear, is not about the site, or would need
+            something you cannot do, do not commit anything. Comment on the
+            issue with your question instead.
+          claude_args: |
+            --max-turns 30
+            --allowedTools "Read,Edit,Write,Glob,Grep,Bash(git:*),Bash(gh issue view:*),Bash(gh issue comment:*)"
