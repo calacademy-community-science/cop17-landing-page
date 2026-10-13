@@ -3,57 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>COP17 Biodiversity Challenge</title>
-<meta name="description" content="Yerevan COP17 Biodiversity Challenge — live results, City Nature Challenge sign-up, and iNaturalist downloads.">
+<title>Yerevan Biodiversity Challenge</title>
+<meta name="description" content="Yerevan Biodiversity Challenge at COP17. Share your nature observations made in Yerevan during the COP on iNaturalist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#f6f7f4; --fg:#1d2a1f; --muted:#5b665d; --accent:#2f7d32; --card:#ffffff; --border:#dde3dc; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg:#121712; --fg:#e7ede6; --muted:#a3ada2; --accent:#74c476; --card:#1b221b; --border:#2c362c; }
-  }
+  :root { --teal:#1f7f9c; --teal-dark:#17647b; --orange:#e8662a; --ink:#1f2d33; --muted:#5d6b70; --paper:#fbf8f3; --line:#e4ddd2; }
   * { box-sizing:border-box; }
-  body { margin:0; background:var(--bg); color:var(--fg);
-         font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
-  main { max-width:560px; margin:0 auto; padding:48px 16px; }
-  h1 { font-size:1.8rem; line-height:1.2; margin:0 0 8px; }
-  p.lede { color:var(--muted); margin:0 0 32px; }
-  a.btn { display:block; padding:16px 18px; margin:0 0 12px; border:1px solid var(--border);
-          border-radius:10px; background:var(--card); color:var(--fg); text-decoration:none; font-weight:600; }
-  a.btn:hover, a.btn:focus { border-color:var(--accent); outline:none; }
-  a.btn span { display:block; font-weight:400; color:var(--muted); font-size:.9rem; }
-  a.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
-  a.primary span { color:rgba(255,255,255,.85); }
-  h2 { font-size:1rem; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin:32px 0 12px; }
+  body { margin:0; background:var(--paper); color:var(--ink);
+         font:500 17px/1.5 Montserrat,"Segoe UI",system-ui,sans-serif; }
+
+  /* Photo of Yerevan and Mount Ararat, with the title set in the sky */
+  header { min-height:62vh; padding:40px 20px 0; text-align:center; color:#fff;
+           background:linear-gradient(rgba(16,50,74,.45), rgba(16,50,74,0) 55%),
+                      url(yerevan-ararat.jpg) center 62% / cover no-repeat #3d6f9c; }
+  h1 { margin:0 auto; max-width:11em; font-size:clamp(2rem, 8vw, 3.4rem); font-weight:700;
+       line-height:1.1; text-shadow:0 2px 12px rgba(10,35,55,.45); }
+  header p { margin:12px 0 0; font-size:clamp(1.1rem, 4.5vw, 1.5rem); font-weight:600;
+             text-shadow:0 1px 8px rgba(10,35,55,.5); }
+
+  main { max-width:560px; margin:0 auto; padding:28px 20px 40px; }
+  p.lede { margin:0 0 24px; font-size:1.15rem; font-weight:600; text-align:center; }
+  a.btn { display:block; padding:16px 20px; margin:0 0 12px; border:2px solid var(--teal);
+          border-radius:12px; background:#fff; color:var(--teal-dark); text-decoration:none;
+          font-weight:700; text-align:center; }
+  a.btn:hover, a.btn:focus-visible { background:#eef6f8; outline:none; }
+  a.btn span { display:block; font-weight:500; font-size:.9rem; color:var(--muted); }
+  a.primary { background:var(--teal); color:#fff; }
+  a.primary:hover, a.primary:focus-visible { background:var(--teal-dark); }
+  a.primary span { color:rgba(255,255,255,.9); }
+  h2 { margin:32px 0 12px; font-size:1.15rem; font-weight:700; text-align:center; color:var(--orange); }
   .row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  .row a.btn { margin:0; text-align:center; }
-  footer { margin-top:48px; font-size:.85rem; color:var(--muted); }
-  footer a { color:var(--muted); }
+  .row a.btn { margin:0; }
+
+  footer { max-width:560px; margin:0 auto; padding:20px 20px 40px; border-top:1px solid var(--line);
+           font-size:.8rem; text-align:center; color:var(--muted); }
+  footer p { margin:0 0 8px; }
+  footer a { color:var(--teal-dark); }
 </style>
 </head>
 <body>
+<header>
+  <h1>Yerevan Biodiversity Challenge</h1>
+  <p>Take Action For Nature!</p>
+</header>
+
 <main>
-  <h1>Yerevan COP17 Biodiversity Challenge</h1>
-  <p class="lede">Record wild plants, animals and fungi with iNaturalist during COP17.</p>
+  <p class="lede">Share your nature observations made in Yerevan during the COP on iNaturalist.</p>
 
   <a class="btn primary" href="https://www.inaturalist.org/projects/yerevan-cop17-biodiversity-challenge/stats_slideshow">
-    See live results
-    <span>Project stats slideshow on iNaturalist</span>
+    Follow along
+    <span>See what has been found so far</span>
   </a>
 
-  <a class="btn" href="https://www.citynaturechallenge.com/participate">
-    Bring the City Nature Challenge to your city
-    <span>Sign up for the City Nature Challenge</span>
-  </a>
-
-  <h2>Get the iNaturalist app</h2>
+  <h2>Download iNaturalist</h2>
   <div class="row">
     <a class="btn" href="https://apps.apple.com/app/inaturalist/id6475737561">iPhone</a>
     <a class="btn" href="https://play.google.com/store/apps/details?id=org.inaturalist.android">Android</a>
   </div>
 
-  <footer>
-    <a href="https://www.inaturalist.org/projects/yerevan-cop17-biodiversity-challenge">Project page</a>
-    · Center for Biodiversity and Community Science
-  </footer>
+  <h2>Bring it home</h2>
+  <a class="btn" href="https://www.citynaturechallenge.com/participate">
+    Bring the City Nature Challenge to your city
+    <span>Sign up to take part</span>
+  </a>
 </main>
+
+<footer>
+  <p>
+    <a href="https://www.inaturalist.org/projects/yerevan-cop17-biodiversity-challenge">Project page on iNaturalist</a>
+    · <a href="https://cop17yerevan.am/en/">COP17 Yerevan</a>
+  </p>
+  <p>Center for Biodiversity and Community Science</p>
+  <p>Photo: <a href="https://commons.wikimedia.org/wiki/File:Mount_Ararat_and_the_Yerevan_skyline_in_spring_from_the_Cascade.jpg">Mount Ararat and the Yerevan skyline</a>
+     by Serouj Ourishian, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+</footer>
 </body>
 </html>
